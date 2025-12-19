@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brendan Choi | Fullstack AI Developer</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer src="./scripts/script.js"></script>
+    <script defer src="./scripts/theme-switcher.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Brendan<span>Choi</span></a>
+            
+            <!-- Mobile menu button (hamburger) -->
+            <div class="mobile-menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            
+            <!-- Nav links (will be hidden on mobile until toggled) -->
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Roadmap</a>
+                <a href="#personal_interests">Interests</a>
+                <a href="#contact">Contact</a>
+            </div>
+    
+            <div class="theme-switch">
+                <span class="theme-switch-icon">
+                    <i class="fas fa-sun"></i>
+                </span>
+                <input type="checkbox" id="theme-toggle" class="theme-switch-checkbox" checked>
+                <label for="theme-toggle" class="theme-switch-label"></label>
+                <span class="theme-switch-icon">
+                    <i class="fas fa-moon"></i>
+                </span>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>I build AI-powered applications that turn complex problems into real-world solutions.</h1>
+                    <p>Hi, I'm Brendan Choi. An independent and self-motivated developer with a genuine passion for IT, specializing in AI-powered applications and fullstack development.</p>
+                    <div>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Machine Learning</span>
+                        <span class="tech-badge">AI</span>
+                        <span class="tech-badge">Web Development</span>
+                        <span class="tech-badge">App Development</span>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <a href="#contact" class="btn">Let's Connect</a>
+                        <a href="#projects" class="btn" style="margin-left: 1rem;">View My Work</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="./assets/Profile.jpeg" alt="Brendan Choi - AI Developer">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="section alternating-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">
+                    I'm a Computer Science student at the University of Auckland with a GPA of 8.22/9, specializing in Machine Learning, AI, and large-scale software development. My journey in tech has been driven by a genuine passion for creating innovative solutions using cutting-edge technologies.
+                </p>
+                <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">
+                    Currently, I work as a Research Assistant focused on AI-based Web Development at the University of Auckland, where I blend my theoretical knowledge with practical applications.
+                </p>
+                <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">
+                    Beyond coding, I'm also a certified personal trainer (NASM), electric guitarist, and fitness enthusiast. These diverse interests help me maintain a balanced perspective and approach to problem-solving.
+                </p>
+                <div style="margin-top: 2rem; text-align: center;">
+                    <a href="./assets/My Resume (8_2025).pdf" class="btn" download="Brendan CV">Download Resume</a> 
+                </div>
+                <div class="contact-info" style="flex: 1; min-width: 250px; text-align: center;">
+
+                    <p style="font-size: 1.125rem; margin-bottom: 1.5rem;"></p>
+                    Find me online
+                    </p>
+                    <div style="display: flex; gap: 1rem; justify-content: center;">
+                        <a href="https://linkedin.com/in/manseung-choi-0447b4223" target="_blank" style="font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/mcho868" target="_blank" style="font-size: 1.5rem; margin-right: 1rem;"><i class="fab fa-github"></i></a>
+                        <a href="https://instagram.com/brendanchoi_" target="_blank" style="font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCd84sDYJbtcSd1VVg0Tb2HQ" target="_blank" style="font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <p class="section-subtitle">A selection of my work in AI, fullstack, and applied software development</p>
+    
+        <div class="projects-container">
+            
+            <!-- Personal Projects Folder -->
+            <div class="project-folder">
+                <div class="folder-header" onclick="toggleFolder('personal-projects')">
+                    <div class="folder-icon">
+                        <i class="fas fa-folder"></i>
+                        <i class="fas fa-folder-open"></i>
+                    </div>
+                    <h3 class="folder-title">Personal Projects</h3>
+                    <span class="folder-count">3 projects</span>
+                    <div class="folder-toggle">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="folder-content" id="personal-projects">
+                    <div class="grid">
+                        <!-- Pomocoin -->
+                        <div class="card">
+                            <h3 class="card-title">Pomocoin (BETA – iOS)</h3>
+                            <p class="card-content">
+                                Productivity mobile app (React Native + Expo) designed around the Pomodoro technique.  
+                                <br>• Implemented <b>Stripe IAP</b> + <b>RevenueCat</b> for subscription & trial management  
+                                <br>• Released <b>iOS beta</b> and onboarded <b>20+ testers</b> with retention feedback  
+                                <br>• Built scalable <b>Firebase backend</b> and adaptive UI for iOS/Android
+                            </p>
+                            <div class="tech-badge">React Native</div>
+                            <div class="tech-badge">Expo</div>
+                            <div class="tech-badge">Typescript</div>
+                            <div class="tech-badge">Firebase</div>
+                            <div class="tech-badge">IOS/Android</div>
+                            <div class="card-footer">
+                                <a href="https://testflight.apple.com/join/1H4De4yq" target="_blank">Download iOS Beta →</a>
+                            </div>
+                        </div>
+                        
+                        <!-- File Star Extension -->
+                        <div class="card">
+                            <h3 class="card-title">⭐ File Star Extension ⭐</h3>
+                            <p class="card-content">
+                                Lightweight VS Code / Cursor extension to boost developer workflow.  
+                                <br>• Enables quick <b>file prioritization</b> with a "star" marker  
+                                <br>• Published on the <b>VS Code Marketplace</b>  
+                                <br>• Built in <b>TypeScript</b> with minimal overhead for adoption
+                            </p>
+                            <div class="tech-badge">VS Code Extension</div>
+                            <div class="tech-badge">JavaScript</div>
+                            <div class="tech-badge">Typescript</div>
+                            <div class="card-footer">
+                                <a href="https://marketplace.visualstudio.com/items?itemName=BrendanChoi.file-star-extension&ssr=false#overview" target="_blank">View Marketplace →</a>
+                            </div>
+                        </div>
+                        
+                        <!-- LOCAI -->
+                        <div class="card">
+                            <h3 class="card-title">LOCAI</h3>
+                            <p class="card-content">
+                                On-device <b>AI coding assistant</b> using Ollama API.  
+                                <br>• Published on the <b>VS Code Marketplace</b>  
+
+                                <br>• Integrated <b>local LLMs</b> for privacy-first developer support  
+                                <br>• Easy to use and install, open source, and free to use
+                            </p>
+                            <div class="tech-badge">VS Code Extension</div>
+                            <div class="tech-badge">Typescript</div>
+                            <div class="tech-badge">LLM</div>
+                            <div class="tech-badge">Sqlite</div>
+                            <div class="tech-badge">Ollama</div>
+                            <div class="card-footer">
+                                <a href="https://marketplace.visualstudio.com/items?itemName=BrendanChoi.locai" target="_blank">View Marketplace →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Competitions Folder -->
+            <div class="project-folder">
+                <div class="folder-header" onclick="toggleFolder('competitions')">
+                    <div class="folder-icon">
+                        <i class="fas fa-folder"></i>
+                        <i class="fas fa-folder-open"></i>
+                    </div>
+                    <h3 class="folder-title">Competitions</h3>
+                    <span class="folder-count">2 projects</span>
+                    <div class="folder-toggle">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="folder-content" id="competitions">
+                    <div class="grid">
+                        <!-- Plain Rights – Legal Tech Hackathon -->
+                        <div class="card">
+                            <h3 class="card-title">Plain Rights – Legal Tech Hackathon (1st Place)</h3>
+                            <p class="card-content">
+                            🏆 <b>1st Place Winner</b> at University Legal Tech Hackathon 2025.  
+                            <br>• Built a <b>user-friendly legal document reader</b> simplifying contracts into plain English  
+                            <br>• Ensured <b>accuracy + personalized support</b> using RAG pipelines  
+                            <br>• Integrated <b>Tinfoil API</b> to guarantee privacy-preserving AI usage  
+                            <br>• Demoed to judges with positive feedback for real-world impact in legal accessibility
+                            </p>
+                            <div class="tech-badge">RAG</div>
+                            <div class="tech-badge">LangChain</div>
+                            <div class="tech-badge">Tinfoil API</div>
+                            <div class="tech-badge">Python</div>
+                            <div class="tech-badge">Hackathon</div>
+                            <div class="card-footer">
+                            <a href="https://github.com/SkylerSG/legal-tech-hackathon" target="_blank">View GitHub →</a>
+                            </div>
+                            <div class="card-footer">
+                            <a href="https://youtu.be/kvkk9diQUmM" target="_blank">Watch Demo Video →</a>
+                            </div>
+                        </div>
+                        
+                        <!-- CarbonKiwi Hackathon -->
+                        <div class="card">
+                            <h3 class="card-title">CARBONKIWI – 2025 Web3 Hackathon</h3>
+                            <p class="card-content">
+                                Hackathon project addressing <b>sustainability with blockchain</b>.  
+                                <br>• Designed tokenized incentives for <b>carbon offsets</b>  
+                                <br>• Built smart contracts on <b>Ethereum Sepolia</b> with Solidity  
+                                <br>• Delivered prototype + pitch deck in under <b>48 hours</b> with a team of 4
+                            </p>
+                            <div class="tech-badge">Solidity</div>
+                            <div class="tech-badge">Blockchain</div>
+                            <div class="tech-badge">React.js</div>
+                            <div class="tech-badge">Express.js</div>
+                            <div class="tech-badge">Hackathon</div> 
+                            <div class="card-footer">
+                                <a href="https://youtu.be/rvKK1kMYAyM" target="_blank">Watch Demo Video →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- University Projects Folder -->
+            <div class="project-folder">
+                <div class="folder-header" onclick="toggleFolder('university')">
+                    <div class="folder-icon">
+                        <i class="fas fa-folder"></i>
+                        <i class="fas fa-folder-open"></i>
+                    </div>
+                    <h3 class="folder-title">University Projects</h3>
+                    <span class="folder-count">2 projects</span>
+                    <div class="folder-toggle">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="folder-content" id="university">
+                    <div class="grid">
+                        <!-- Natural Language Trader -->
+                        <div class="card">
+                            <h3 class="card-title">NLT – Natural Language Trader</h3>
+                            <p class="card-content">
+                                Prototype of an <b>LLM-powered crypto trading agent</b>.  
+                                <br>• Built with <b>Flask + Web3.py + Gemini API</b>  
+                                <br>• Enabled users to <b>execute trades in plain English</b> (e.g., "Buy 0.1 ETH if BTC rises 2%")  
+                                <br>• Produced <b>demo paper & video</b> documenting feasibility of agentic finance workflows
+                            </p>
+                            <div class="tech-badge">Flask</div>
+                            <div class="tech-badge">Web3</div>
+                            <div class="tech-badge">Python</div>
+                            <div class="tech-badge">Sqlite</div>
+                            <div class="tech-badge">Gemini API</div>  
+                            <div class="card-footer">
+                                <a href="https://ai-trading-agent-6kpf.onrender.com" target="_blank">View Site →</a>
+                            </div>
+                            <div class="card-footer">
+                                <a href="https://youtu.be/5b8WlLuia8g" target="_blank">Watch Demo Video →</a>
+                            </div>
+                            <div class="card-footer">
+                                <a href="./assets/767_NLT___Natural_Language_Trader.pdf" download="./assets/767_NLT___Natural_Language_Trader.pdf">Download Paper →</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Project Sofia -->
+                        <div class="card">
+                            <h3 class="card-title">Project Sofia</h3>
+                            <p class="card-content">
+                                AI-powered web project, awarded <b>2nd Place</b> in University of Auckland's 2024 COMP SCI 399 capstone.  
+                                <br>• Built chatbot with <b>RAG retrieval</b> + React frontend  
+                                <br>• Recognized for balancing <b>technical depth</b> and user-friendly design  
+                                <br>• Delivered in agile sprints with GitHub + JIRA; continuing development professionally
+                            </p>
+                            <div class="tech-badge">AI</div>
+                            <div class="tech-badge">React.js</div>
+                            <div class="tech-badge">Django</div>
+                            <div class="tech-badge">MySQL</div>
+                            <div class="tech-badge">AWS</div>
+                            <div class="tech-badge">OpenAI</div>
+                            <div class="card-footer">
+                                <a href="https://www.projectsof1a.com" target="_blank">Visit Site →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="section alternating-section">
+        <div class="container">
+        <h2 class="section-title">My Skills</h2>
+        <p class="section-subtitle">A comprehensive look at my technical expertise — with clear core strengths up front</p>
+        
+        <div class="skills-grid">
+            
+            <!-- Core Strengths (Depth-first highlight) -->
+            <div class="skill-card">
+            <h3 class="skill-title"><i class="fas fa-bolt"></i> Core Strengths</h3>
+                <div>
+                    <div class="tech-badge">Building AI Powered Applications</div>
+                    <div class="tech-badge">Team Leading</div>
+                    <div class="tech-badge">Project Management</div>
+                    <div class="tech-badge">Fullstack Shipping</div>
+                    <div class="tech-badge">Building AI Frameworks</div>
+                </div>
+            </div>
+    
+            <div class="skill-card">
+            <h3 class="skill-title"><i class="fas fa-code"></i> Programming Languages</h3>
+                <div>
+                    <div class="tech-badge">Python</div>
+                    <div class="tech-badge">JS/TS</div>
+                    <div class="tech-badge">HTML/CSS</div>
+                    <div class="tech-badge">Java</div>
+                    <div class="tech-badge">C#</div>
+                    <div class="tech-badge">SQL</div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3 class="skill-title"><i class="fas fa-brain"></i>AI tools I use</h3>
+                <div>
+                    <div class="tech-badge">Cursor</div>
+                    <div class="tech-badge">Claude code</div>
+                    <div class="tech-badge">Gemini cli</div>
+                    <div class="tech-badge">Claude MCP</div>
+                    <div class="tech-badge">Locai</div>
+                </div>
+            </div>
+            
+            <div class="skill-card">
+                <h3 class="skill-title"><i class="fas fa-brain"></i> Artificial Intelligence</h3>
+                <div>
+                    <!-- Depth-oriented ordering -->
+                    <div class="tech-badge">RAG building</div>
+                    <div class="tech-badge">PEFT</div>
+                    <div class="tech-badge">Local LLM integration</div>
+                    <div class="tech-badge">LLM API integration</div>
+                </div>
+            </div>
+    
+            <div class="skill-card">
+                <h3 class="skill-title"><i class="fas fa-server"></i> Web2 Framework & Database</h3>
+                <div>
+                    <div class="tech-badge">React</div>
+                    <div class="tech-badge">React Native</div>
+                    <div class="tech-badge">Next.js</div>
+                    <div class="tech-badge">Express.js</div>
+                    <div class="tech-badge">Django</div>
+                    <div class="tech-badge">Flask</div>
+                    <div class="tech-badge">MySQL</div>
+                    <div class="tech-badge">SQLite</div>
+                    <div class="tech-badge">Firebase</div>
+                    <div class="tech-badge">AWS</div>
+                    <div class="tech-badge">Tailwind CSS</div>
+                </div>
+            </div>
+    
+            <div class="skill-card">
+                <h3 class="skill-title"><i class="fas fa-cube"></i> Web3 Framework</h3>
+                <div>
+                    <div class="tech-badge">Solidity</div>
+                    <div class="tech-badge">web3.py</div>
+                    <div class="tech-badge">Ethereum (Sepolia)</div>
+                    <div class="tech-badge">Hardhat</div>
+                </div>
+            </div>
+            
+            <div class="skill-card">
+                <h3 class="skill-title"><i class="fas fa-language"></i> Languages</h3>
+                <div>
+                    <div class="tech-badge">Korean (Full Professional)</div>
+                    <div class="tech-badge">English (Full Professional)</div>
+                </div>
+            </div>
+    
+            <div class="skill-card">
+                <h3 class="skill-title"><i class="fas fa-project-diagram"></i> Project Management</h3>
+                <div>
+                    <div class="tech-badge">Jira</div>
+                    <div class="tech-badge">Miro</div>
+                    <div class="tech-badge">GitHub</div>
+                    <div class="tech-badge">Team Lead</div>
+                    <div class="tech-badge">Agile / Project Management</div>
+                </div>
+            </div>
+    
+        </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">My Roadmap</h2>
+            <p class="section-subtitle">My professional journey and academic background</p>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3 class="experience-title">Research Assistant (AI Based Web Development)</h3>
+                        <p class="experience-company">University of Auckland</p>
+                        <p class="experience-date">December 2024 - Present</p>
+                        <p>Working on cutting-edge AI integration with web development, focusing on machine learning applications that enhance web functionalities and user experience.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h3 class="experience-title">Bachelor of Computer Science (Honours) with full scholarship</h3>
+                        <p class="experience-company">University of Auckland</p>
+                        <p class="experience-date">February 2022 - Present</p>
+                        <p>Studying Machine Learning, AI, and large-scale software development with a current GPA of 8.375. Participating in advanced research projects and capstone courses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="personal_interests" class="section alternating-section">
+        <div class="container">
+            <h2 class="section-title">Personal Interests</h2>
+            <p class="section-subtitle">My hobbies and passions</p>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="interests-container">
+                    <div class="interest-card">
+                        <div class="interest-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <h3 class="interest-title">FITNESS</h3>
+                        <div class="interest-overlay">
+                            <h4>NASM Certified Personal Trainer</h4>
+                            <p>As a certified personal trainer, I'm passionate about strength training and functional fitness. 
+                                I enjoy helping others develop sustainable workout routines while pursuing my own fitness goals 
+                                through a combination of weight training, calisthenics, and mobility work.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="interest-card">
+                        <div class="interest-icon">
+                            <i class="fas fa-guitar"></i>
+                        </div>
+                        <h3 class="interest-title">MUSIC</h3>
+                        <div class="interest-overlay">
+                            <h4>Guitarist in multiple bands</h4>
+                            <p>I was always interested in music since I was little and guitar specifcally got me interested due to how cool it is. 
+                                Playing guitar on the side was a good life balance for me, resting exhausted brain from study. 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <h3 class="interest-title">COFFEE</h3>
+                        <div class="interest-overlay">
+                            <h4>Home Barista</h4>
+                            <p>Coffee is more than a morning ritual for me—it's a craft I've been exploring for years. I cannot live without them :)</p>
+                        </div>
+                    </div>
+    
+                    <div class="interest-card">
+                        <div class="interest-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3 class="interest-title">I've quit GAMING</h3>
+                        <div class="interest-overlay">
+                            <h4>FromSoftware Fan</h4>
+                            <p>I'm an avid gamer with a particular fondness for FromSoftware titles like Dark Souls, 
+                                Bloodborne, and Elden Ring. I appreciate games with challenging gameplay, immersive worlds, and innovative design. I've quit gaming recently to lock in :)</p>
+                        </div>
+                    </div>
+    
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container"> 
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; margin-top: 2rem;">
+                <!-- Contact Information -->
+                <div class="contact-info" style="flex: 1; min-width: 250px; text-align: center;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Contact Information</h3>
+                    <p style="margin-bottom: 1rem;"><i class="fas fa-envelope" style="color: var(--primary); margin-right: 0.5rem;"></i> brendanchoi0626@gmail.com</p>
+                    <p style="margin-bottom: 1rem;"><i class="fas fa-phone" style="color: var(--primary); margin-right: 0.5rem;"></i> 0220368384</p>
+                    <p style="margin-bottom: 1rem;"><i class="fas fa-map-marker-alt" style="color: var(--primary); margin-right: 0.5rem;"></i> Auckland, New Zealand</p>
+                </div>
+
+                <!-- Connect With Me -->
+                <div class="contact-info" style="flex: 1; min-width: 250px; text-align: center;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Connect With Me</h3>
+                    <div style="display: flex; gap: 1rem; justify-content: center;">
+                        <a href="https://linkedin.com/in/manseung-choi-0447b4223" target="_blank" style="font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/mcho868" target="_blank" style="font-size: 1.5rem;"><i class="fab fa-github"></i></a>
+                        <a href="https://instagram.com/brendanchoi_" target="_blank" style="font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCd84sDYJbtcSd1VVg0Tb2HQ" target="_blank" style="font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Brendan Choi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
