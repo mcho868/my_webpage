@@ -111,3 +111,30 @@ document.addEventListener('DOMContentLoaded', function() {
         firstFolder.classList.add('expanded');
     }
 });
+// Experience section toggle for mobile
+function toggleExperience(type) {
+    const techBtn = document.getElementById('tech-btn');
+    const nonTechBtn = document.getElementById('non-tech-btn');
+    const techExperience = document.getElementById('tech-experience');
+    const nonTechExperience = document.getElementById('non-tech-experience');
+    
+    if (type === 'tech') {
+        techBtn.classList.add('active');
+        nonTechBtn.classList.remove('active');
+        techExperience.classList.add('active');
+        nonTechExperience.classList.remove('active');
+    } else {
+        nonTechBtn.classList.add('active');
+        techBtn.classList.remove('active');
+        nonTechExperience.classList.add('active');
+        techExperience.classList.remove('active');
+    }
+}
+
+// Initialize mobile experience toggle - default to tech view
+document.addEventListener('DOMContentLoaded', function() {
+    const techExperience = document.getElementById('tech-experience');
+    if (techExperience && window.innerWidth <= 768) {
+        techExperience.classList.add('active');
+    }
+});

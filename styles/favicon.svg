@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background (optional) -->
+  <rect x="0" y="0" width="64" height="64" rx="12" fill="#111827"/>
+
+  <!-- M -->
+  <path
+    d="M14 48V16h7l11 18 11-18h7v32h-7V29.5l-11 17.5-11-17.5V48h-7z"
+    fill="#ffffff"
+    fill-rule="evenodd"
+  />
+
+  <!-- C (centred + lighter grey) -->
+  <path
+    d="M44 24
+       C40 20, 32 20, 28 25
+       C24 30, 24 34, 28 39
+       C32 44, 40 44, 44 40"
+    fill="none"
+    stroke="#9CA3AF"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
