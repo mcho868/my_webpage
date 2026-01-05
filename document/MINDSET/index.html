@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" data-doc-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-en="Mindset | Brendan Choi" data-i18n-ko="마인드셋 | 최만승">Mindset | Brendan Choi</title>
+
+    <link rel="icon" type="image/svg+xml" href="/styles/favicon.svg">
+    <link rel="alternate icon" href="/styles/favicon.svg">
+
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script defer src="/scripts/theme-switcher.js"></script>
+    <style>
+        /* Language switching - hide inactive language */
+        [data-doc-lang="en"] .lang-block[data-lang="ko"] {
+            display: none;
+        }
+
+        [data-doc-lang="ko"] .lang-block[data-lang="en"] {
+            display: none;
+        }
+
+        /* Math formula styling */
+        .katex-display {
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .katex {
+            font-size: 1.1em;
+        }
+
+        /* Ensure math formulas are readable in dark mode */
+        [data-theme="dark"] .katex {
+            color: var(--text-color, #e0e0e0);
+        }
+
+        /* Chart container styling */
+        .wealth-chart-container {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            max-width: 100%;
+        }
+
+        .wealth-chart-container canvas {
+            max-width: 100%;
+            height: auto !important;
+        }
+
+        .chart-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .chart-controls label {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            font-size: 0.875rem;
+        }
+
+        .chart-controls input {
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: inherit;
+            width: 120px;
+        }
+
+        /* Prevent overflow on mobile */
+        .document-content {
+            overflow-x: hidden;
+            word-wrap: break-word;
+        }
+
+        .document-content ul,
+        .document-content ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .document-content li {
+            margin: 0.5rem 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .document-content p,
+        .document-content blockquote {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* Mobile-friendly adjustments */
+        @media (max-width: 768px) {
+            .document-header-inner {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .document-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .document-shell {
+                padding: 1.5rem 1rem;
+            }
+
+            .document-shell h1 {
+                font-size: 1.75rem;
+            }
+
+            .document-shell h2 {
+                font-size: 1.5rem;
+            }
+
+            .document-shell h3 {
+                font-size: 1.25rem;
+            }
+
+            .document-content {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .document-content ul,
+            .document-content ol {
+                padding-left: 1.25rem;
+            }
+
+            .lang-toggle {
+                gap: 0.5rem;
+            }
+
+            .lang-toggle-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+
+            .wealth-chart-container {
+                padding: 1rem;
+                margin: 1.5rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .document-shell {
+                padding: 1rem 0.75rem;
+            }
+
+            .document-shell h1 {
+                font-size: 1.5rem;
+            }
+
+            .document-content {
+                font-size: 0.9375rem;
+            }
+
+            .document-content ul,
+            .document-content ol {
+                padding-left: 1rem;
+            }
+
+            .wealth-chart-container {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body class="document-page">
+    <header class="document-header">
+        <div class="container document-header-inner">
+            <a class="document-home" href="/">Manseung<span>Choi</span></a>
+            <div class="document-actions">
+                <div class="lang-toggle" role="tablist" aria-label="Language toggle">
+                    <button class="lang-toggle-btn active" type="button" data-lang="en" aria-pressed="true">ENG</button>
+                    <button class="lang-toggle-btn" type="button" data-lang="ko" aria-pressed="false">KOR</button>
+                </div>
+                <div class="theme-switch">
+                    <span class="theme-switch-icon">
+                        <i class="fas fa-sun"></i>
+                    </span>
+                    <input type="checkbox" id="theme-toggle" class="theme-switch-checkbox" checked>
+                    <label for="theme-toggle" class="theme-switch-label"></label>
+                    <span class="theme-switch-icon">
+                        <i class="fas fa-moon"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="document-main">
+        <div class="container">
+            <section class="document-shell">
+                <h1 class="lang-block" data-lang="en">Mindset</h1>
+                <h1 class="lang-block" data-lang="ko">마인드셋</h1>
+                <p class="lang-block" data-lang="en">Read the Awakening Note in Korean or English. Use the toggle above to switch.</p>
+                <p class="lang-block" data-lang="ko">한국어 또는 영어로 각성 노트를 읽어보세요. 위의 토글을 사용하여 전환하세요.</p>
+                <div id="document-content" class="document-content">
+                    <span class="lang-block" data-lang="en">Loading mindset document...</span>
+                    <span class="lang-block" data-lang="ko">마인드셋 문서를 로딩 중...</span>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        const langButtons = Array.from(document.querySelectorAll('.lang-toggle-btn'));
+        const documentContent = document.getElementById('document-content');
+
+        function setLang(lang) {
+            document.documentElement.setAttribute('data-doc-lang', lang);
+            document.documentElement.setAttribute('lang', lang);
+            localStorage.setItem('mindset-lang', lang);
+            langButtons.forEach(button => {
+                const isActive = button.dataset.lang === lang;
+                button.classList.toggle('active', isActive);
+                button.setAttribute('aria-pressed', String(isActive));
+            });
+
+            // Update page title
+            const titleEl = document.querySelector('title');
+            if (titleEl) {
+                const newTitle = lang === 'ko' ? titleEl.getAttribute('data-i18n-ko') : titleEl.getAttribute('data-i18n-en');
+                if (newTitle) titleEl.textContent = newTitle;
+            }
+        }
+
+        function buildLangBlocks(source) {
+            const lines = source.split('\n');
+            const blocks = [];
+            let currentLang = null;
+            let currentContent = [];
+
+            const closeBlock = () => {
+                if (currentLang && currentContent.length > 0) {
+                    const mdContent = currentContent.join('\n');
+                    const htmlContent = marked.parse(mdContent);
+                    blocks.push({
+                        lang: currentLang,
+                        html: htmlContent
+                    });
+                    currentContent = [];
+                    currentLang = null;
+                }
+            };
+
+            for (const line of lines) {
+                // Check for CHART_PLACEHOLDER - this should appear in both languages
+                if (line.trim() === 'CHART_PLACEHOLDER') {
+                    closeBlock();
+                    // Add chart to both languages with unique IDs
+                    blocks.push({
+                        lang: 'en',
+                        html: '<div class="wealth-chart-container"><canvas id="wealth-chart-en"></canvas></div>'
+                    });
+                    blocks.push({
+                        lang: 'ko',
+                        html: '<div class="wealth-chart-container"><canvas id="wealth-chart-ko"></canvas></div>'
+                    });
+                    continue;
+                }
+
+                const korMatch = line.match(/^KOR:\s*(.*)$/);
+                const engMatch = line.match(/^ENG:\s*(.*)$/);
+
+                if (korMatch) {
+                    closeBlock();
+                    currentLang = 'ko';
+                    if (korMatch[1]) {
+                        currentContent.push(korMatch[1]);
+                    }
+                    continue;
+                }
+
+                if (engMatch) {
+                    closeBlock();
+                    currentLang = 'en';
+                    if (engMatch[1]) {
+                        currentContent.push(engMatch[1]);
+                    }
+                    continue;
+                }
+
+                // If we're in a language block, add the line
+                if (currentLang) {
+                    currentContent.push(line);
+                } else {
+                    // Neutral content (like ---)
+                    if (line.trim()) {
+                        currentContent.push(line);
+                    }
+                }
+            }
+
+            closeBlock();
+
+            // Build final HTML
+            return blocks.map(block =>
+                `<div class="lang-block" data-lang="${block.lang}">${block.html}</div>`
+            ).join('');
+        }
+
+        async function loadMindset() {
+            try {
+                marked.setOptions({
+                    mangle: false,
+                    headerIds: false
+                });
+
+                const response = await fetch('/MINDSET.md');
+                if (!response.ok) {
+                    throw new Error('Unable to load MINDSET.md');
+                }
+                const source = await response.text();
+                let htmlContent = buildLangBlocks(source);
+
+                // CHART_PLACEHOLDER is already handled in buildLangBlocks with unique IDs
+
+                documentContent.innerHTML = htmlContent;
+
+                // Render math formulas with KaTeX
+                renderMathInElement(documentContent, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            } catch (error) {
+                const currentLang = document.documentElement.getAttribute('data-doc-lang') || 'en';
+                const errorMsg = currentLang === 'ko'
+                    ? '마인드셋 문서를 로드하는 데 실패했습니다.'
+                    : 'Failed to load the mindset document.';
+                documentContent.textContent = errorMsg;
+                console.error(error);
+            }
+        }
+
+        function initWealthChart() {
+            const currentLang = document.documentElement.getAttribute('data-doc-lang') || 'en';
+            const canvas = document.getElementById(`wealth-chart-${currentLang}`);
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+
+            const labels = {
+                en: {
+                    title: 'Time/Effort',
+                    salary: 'Salary (Limited by Time)',
+                    business: 'Business (Unlimited Scale)',
+                    xAxis: 'Time / Effort',
+                    yAxis: 'Income / Wealth'
+                },
+                ko: {
+                    title: '시간/노력',
+                    salary: '월급 (시간에 제한됨)',
+                    business: '사업 (무제한 규모)',
+                    xAxis: '시간 / 노력',
+                    yAxis: '소득 / 부'
+                }
+            };
+
+            const currentLabels = labels[currentLang];
+
+            // X-axis: 0 to 100 (representing time/effort)
+            const timePoints = Array.from({length: 101}, (_, i) => i);
+
+            // Salary: Linear growth y = x
+            const salaryData = timePoints.map(t => t);
+
+            // Business: Smooth exponential J-curve
+            // Extremely flat at the beginning (the grind), then explosive vertical growth
+            const businessData = timePoints.map(t => {
+                // Smooth exponential curve: y = a * e^(b*x)
+                // Adjusted to be very flat initially, then explode
+                return 0.05 * Math.pow(Math.E, 0.08 * t);
+            });
+
+            const data = {
+                labels: timePoints,
+                datasets: [
+                    {
+                        label: currentLabels.salary,
+                        data: salaryData,
+                        borderColor: 'rgb(120, 120, 140)',
+                        backgroundColor: 'rgba(120, 120, 140, 0.1)',
+                        borderWidth: 3,
+                        tension: 0,
+                        pointRadius: 0
+                    },
+                    {
+                        label: currentLabels.business,
+                        data: businessData,
+                        borderColor: 'rgb(180, 255, 50)',
+                        backgroundColor: 'rgba(180, 255, 50, 0.1)',
+                        borderWidth: 3,
+                        tension: 0.4,
+                        pointRadius: 0
+                    }
+                ]
+            };
+
+            if (window.wealthChart) {
+                window.wealthChart.destroy();
+            }
+
+            // Add annotation for "The Grind" - pointing to the flat part of the curve
+            const grindPointIndex = 35;
+
+            window.wealthChart = new Chart(ctx, {
+                type: 'line',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    aspectRatio: window.innerWidth < 768 ? 1.2 : 2,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                color: 'rgb(200, 200, 200)',
+                                font: {
+                                    size: window.innerWidth < 768 ? 11 : 13
+                                },
+                                usePointStyle: true,
+                                padding: 15
+                            }
+                        },
+                        tooltip: {
+                            enabled: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: currentLabels.xAxis,
+                                color: 'rgb(200, 200, 200)',
+                                font: {
+                                    size: window.innerWidth < 768 ? 11 : 13,
+                                    weight: 'bold'
+                                }
+                            },
+                            ticks: {
+                                display: false
+                            },
+                            grid: {
+                                color: 'rgba(200, 200, 200, 0.1)'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: currentLabels.yAxis,
+                                color: 'rgb(200, 200, 200)',
+                                font: {
+                                    size: window.innerWidth < 768 ? 11 : 13,
+                                    weight: 'bold'
+                                }
+                            },
+                            ticks: {
+                                display: false
+                            },
+                            grid: {
+                                color: 'rgba(200, 200, 200, 0.1)'
+                            }
+                        }
+                    }
+                },
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('mindset-lang') || 'en';
+            setLang(savedLang);
+            langButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    setLang(button.dataset.lang);
+                    // Reinitialize chart with new language
+                    setTimeout(initWealthChart, 100);
+                });
+            });
+            loadMindset().then(() => {
+                initWealthChart();
+            });
+        });
+    </script>
+</body>
+</html>
