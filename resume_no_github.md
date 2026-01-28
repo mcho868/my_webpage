@@ -12,7 +12,7 @@ fontsize: 10pt
 **AI Engineer | Full-Stack Developer**
 
 Auckland, New Zealand | <brendanchoi0626@gmail.com> | +64 22 036 8384
-LinkedIn: linkedin.com/in/manseung-choi-0447b4223 | GitHub: github.com/mcho868 | Portfolio: manseungchoi.com
+LinkedIn: linkedin.com/in/manseung-choi-0447b4223 | Portfolio: manseungchoi.com
 
 ## EDUCATION
 
