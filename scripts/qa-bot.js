@@ -1,9 +1,8 @@
 // QA Bot — Brendan Choi Portfolio
 // Gemini streaming + markdown rendering + tokens/s
 
-const GEMINI_API_KEY = 'AIzaSyCXWotXB_egd2OuaXMkgvo3feC61pTNcBk';
 const GEMINI_MODEL = 'gemini-3-flash-preview';
-const GEMINI_STREAM_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:streamGenerateContent?alt=sse&key=${GEMINI_API_KEY}`;
+const GEMINI_PROXY_URL = '/api/gemini';
 
 const SYSTEM_CONTEXT = `
 You are a strict Q&A assistant embedded in Brendan Manseung Choi's personal portfolio website.
@@ -329,15 +328,27 @@ async function sendQAMessage() {
             generationConfig: { temperature: 0.2, maxOutputTokens: 512 },
         };
 
-        const res = await fetch(GEMINI_STREAM_URL, {
+        const res = await fetch(GEMINI_PROXY_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(body),
         });
 
         if (!res.ok) {
-            const err = await res.json();
-            throw new Error(err.error?.message || `HTTP ${res.status}`);
+            const errorText = await res.text();
+            let errorMessage = `HTTP ${res.status}`;
+
+            try {
+                const err = JSON.parse(errorText);
+                errorMessage = err.error?.message || err.error || errorMessage;
+            } catch (_) {
+                try {
+                    const err = JSON.parse(errorText.replace(/^data:\s*/, ''));
+                    errorMessage = err.error?.message || err.error || errorMessage;
+                } catch (_) {}
+            }
+
+            throw new Error(errorMessage);
         }
 
         const reader = res.body.getReader();
