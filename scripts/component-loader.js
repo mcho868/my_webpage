@@ -36,6 +36,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (techExperience && window.innerWidth <= 768) {
         techExperience.classList.add('active');
     }
+
+    document.dispatchEvent(new CustomEvent('components:loaded'));
 });
 
 // Mobile menu initialization
