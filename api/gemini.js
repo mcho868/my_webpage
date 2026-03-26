@@ -23,40 +23,22 @@ module.exports = async function handler(req, res) {
         }
 
         const upstream = await fetch(
-            `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:streamGenerateContent?alt=sse&key=${apiKey}`,
+            `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`,
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    contents,
-                    system_instruction,
-                    generationConfig,
-                }),
+                body: JSON.stringify({ contents, system_instruction, generationConfig }),
             }
         );
 
+        const data = await upstream.json();
+
         if (!upstream.ok) {
-            const errorText = await upstream.text();
-            res.status(upstream.status).send(errorText);
+            res.status(upstream.status).json(data);
             return;
         }
 
-        res.writeHead(200, {
-            'Content-Type': 'text/event-stream; charset=utf-8',
-            'Cache-Control': 'no-cache, no-transform',
-            Connection: 'keep-alive',
-        });
-
-        const reader = upstream.body.getReader();
-        const decoder = new TextDecoder();
-
-        while (true) {
-            const { done, value } = await reader.read();
-            if (done) break;
-            res.write(decoder.decode(value, { stream: true }));
-        }
-
-        res.end();
+        res.status(200).json(data);
     } catch (error) {
         res.status(500).json({ error: error.message || 'Unexpected server error.' });
     }

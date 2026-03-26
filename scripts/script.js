@@ -26,25 +26,28 @@ if (contactForm) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    const themeSwitch = document.querySelector('.theme-switch');
-    
-    mobileMenuToggle.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        themeSwitch.classList.toggle('show-mobile');
-    });
-    
-    // Close mobile menu when a link is clicked
-    const navLinksArray = document.querySelectorAll('.nav-links a');
-    navLinksArray.forEach(link => {
-        link.addEventListener('click', function() {
-            mobileMenuToggle.classList.remove('active');
-            navLinks.classList.remove('active');
-            themeSwitch.classList.remove('show-mobile');
+    // Nav components load async — poll until they exist
+    function initMobileMenu() {
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (!mobileMenuToggle || !navLinks) {
+            setTimeout(initMobileMenu, 100);
+            return;
+        }
+
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
         });
-    });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+    initMobileMenu();
     
     // Theme switcher functionality
     const themeButtons = document.querySelectorAll('.theme-option');

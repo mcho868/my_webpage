@@ -203,38 +203,10 @@ function escHtml(str) {
         .replace(/>/g, '&gt;');
 }
 
-function extractGeminiText(chunk) {
-    const parts = chunk?.candidates?.[0]?.content?.parts;
-    if (!Array.isArray(parts)) return '';
-    return parts
-        .map(part => typeof part?.text === 'string' ? part.text : '')
-        .join('');
-}
-
-function parseSSEEvents(buffer, flush = false) {
-    const normalized = buffer.replace(/\r\n/g, '\n');
-    const events = flush ? `${normalized}\n\n`.split('\n\n') : normalized.split('\n\n');
-    return {
-        events: events.slice(0, -1),
-        remainder: events[events.length - 1] || '',
-    };
-}
-
-function parseSSEEvent(eventText) {
-    const dataLines = [];
-
-    for (const line of eventText.split('\n')) {
-        const trimmed = line.trim();
-        if (!trimmed.startsWith('data:')) continue;
-        dataLines.push(trimmed.slice(5).trim());
-    }
-
-    return dataLines.join('\n');
-}
 
 // ── State ──────────────────────────────────────────────────────────────────
 let chatHistory = [];
-let isStreaming = false;
+let isLoading = false;
 
 // ── UI lifecycle ───────────────────────────────────────────────────────────
 function openQABot() {
@@ -300,9 +272,9 @@ function createQABotUI() {
     injectQAStyles();
 }
 
-// ── Send / stream ──────────────────────────────────────────────────────────
+// ── Send ───────────────────────────────────────────────────────────────────
 async function sendQAMessage() {
-    if (isStreaming) return;
+    if (isLoading) return;
     const input = document.getElementById('qa-input');
     const question = input.value.trim();
     if (!question) return;
@@ -311,96 +283,39 @@ async function sendQAMessage() {
     appendUserMessage(question);
 
     const textEl = appendBotPlaceholder();
-    const statsEl = document.getElementById('qa-stats');
-    isStreaming = true;
+    isLoading = true;
     setSendDisabled(true);
-    if (statsEl) statsEl.textContent = 'STREAMING';
-
-    let fullText = '';
-    const startedAt = Date.now();
 
     try {
         chatHistory.push({ role: 'user', parts: [{ text: question }] });
 
-        const body = {
-            system_instruction: { parts: [{ text: SYSTEM_CONTEXT }] },
-            contents: chatHistory,
-            generationConfig: { temperature: 0.2, maxOutputTokens: 512 },
-        };
-
         const res = await fetch(GEMINI_PROXY_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body),
+            body: JSON.stringify({
+                system_instruction: { parts: [{ text: SYSTEM_CONTEXT }] },
+                contents: chatHistory,
+                generationConfig: { temperature: 0.2, thinkingConfig: { thinkingLevel: 'low' } },
+            }),
         });
 
+        const data = await res.json();
+
         if (!res.ok) {
-            const errorText = await res.text();
-            let errorMessage = `HTTP ${res.status}`;
-
-            try {
-                const err = JSON.parse(errorText);
-                errorMessage = err.error?.message || err.error || errorMessage;
-            } catch (_) {
-                try {
-                    const err = JSON.parse(errorText.replace(/^data:\s*/, ''));
-                    errorMessage = err.error?.message || err.error || errorMessage;
-                } catch (_) {}
-            }
-
-            throw new Error(errorMessage);
+            throw new Error(data.error?.message || data.error || `HTTP ${res.status}`);
         }
 
-        const reader = res.body.getReader();
-        const decoder = new TextDecoder();
-        let buffer = '';
+        const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "I couldn't generate a response.";
+        chatHistory.push({ role: 'model', parts: [{ text: reply }] });
 
-        while (true) {
-            const { done, value } = await reader.read();
-            if (done) {
-                buffer += decoder.decode();
-            } else {
-                buffer += decoder.decode(value, { stream: true });
-            }
-
-            const parsed = parseSSEEvents(buffer, done);
-            buffer = parsed.remainder;
-
-            for (const eventText of parsed.events) {
-                const jsonStr = parseSSEEvent(eventText);
-                if (!jsonStr) continue;
-                if (jsonStr === '[DONE]') continue;
-
-                try {
-                    const chunk = JSON.parse(jsonStr);
-                    const part = extractGeminiText(chunk);
-                    if (part) {
-                        fullText += part;
-                        textEl.innerHTML = renderMarkdown(fullText) + '<span class="qa-blink">▋</span>';
-                        if (statsEl) {
-                            const seconds = Math.max((Date.now() - startedAt) / 1000, 0.1);
-                            const charsPerSec = Math.round(fullText.length / seconds);
-                            statsEl.textContent = `STREAMING ${charsPerSec} CPS`;
-                        }
-                        scrollMessages();
-                    }
-                } catch (_) {}
-            }
-
-            if (done) break;
-        }
-
-        textEl.innerHTML = renderMarkdown(fullText);
-        chatHistory.push({ role: 'model', parts: [{ text: fullText }] });
-        if (statsEl) statsEl.textContent = fullText ? `DONE ${fullText.length} CHARS` : 'DONE';
+        textEl.innerHTML = renderMarkdown(reply);
         scrollMessages();
 
     } catch (err) {
         textEl.innerHTML = `<p style="color:#ff4757">Error: ${escHtml(err.message)}</p>`;
-        if (statsEl) statsEl.textContent = 'ERROR';
         console.error(err);
     } finally {
-        isStreaming = false;
+        isLoading = false;
         setSendDisabled(false);
         document.getElementById('qa-input').focus();
     }
@@ -427,7 +342,11 @@ function appendBotPlaceholder() {
     div.innerHTML = `
         <div class="qa-msg-inner">
             <span class="qa-prompt">manseung@portfolio:~$</span>
-            <div class="qa-text"><span class="qa-blink">▋</span></div>
+            <div class="qa-text">
+                <span class="qa-loading-dots">
+                    <span></span><span></span><span></span>
+                </span>
+            </div>
         </div>`;
     container.appendChild(div);
     scrollMessages();
@@ -532,13 +451,25 @@ function injectQAStyles() {
             letter-spacing: 0.06em;
         }
 
-        #qa-stats {
-            flex: 1;
-            text-align: center;
-            font-size: 10px;
-            color: #3b9eff;
-            letter-spacing: 0.08em;
-            opacity: 0.7;
+        #qa-stats { flex: 1; }
+
+        .qa-loading-dots {
+            display: inline-flex;
+            gap: 5px;
+            align-items: center;
+            padding: 4px 0;
+        }
+        .qa-loading-dots span {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #3b9eff;
+            animation: qa-dot-bounce 1.2s ease-in-out infinite;
+        }
+        .qa-loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .qa-loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes qa-dot-bounce {
+            0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+            40%            { opacity: 1;   transform: scale(1.2); }
         }
 
         #qa-close {
