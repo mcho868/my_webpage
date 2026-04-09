@@ -34,6 +34,7 @@ University of Auckland | Feb 2022 - Dec 2025 | GPA: 8 / 9
 * Designed and implemented AI-driven clinical workflow automation for GP clinics, integrating with existing Practice Management Systems
 * Built automated patient summarisation and referral generation pipelines to reduce clinician administrative workload
 * Secured NZD $15K Velocity Challenge funding and supported early pilot deployments
+* On going pilot at an Urgent Care Clinic
 
 **Research Assistant (AI-Based Web Development)** | University of Auckland | Dec 2024 - 2025
 
