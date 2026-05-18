@@ -34,7 +34,7 @@ University of Auckland | Feb 2022 - Dec 2025 | GPA: 8 / 9
 * Designed and implemented AI-driven clinical workflow automation for GP clinics, integrating with existing Practice Management Systems
 * Built automated patient summarisation and referral generation pipelines to reduce clinician administrative workload
 * Secured NZD $15K Velocity Challenge funding and supported early pilot deployments
-* On going pilot at an Urgent Care Clinic
+* **Ongoing pilot at an Urgent Care Clinic** — live deployment with real clinical users
 
 **Research Assistant (AI-Based Web Development)** | University of Auckland | Dec 2024 - 2025
 
@@ -65,7 +65,8 @@ University of Auckland | Feb 2022 - Dec 2025 | GPA: 8 / 9
 * **Web / Mobile:** React, React Native, Next.js, Django, Flask, Express.js, Tailwind CSS
 * **Databases:** Firebase, MySQL, SQLite
 * **Cloud / Infra:** AWS
-* **Tools:** Git, Jira, VS Code (2 published extensions), Cursor
+* **Tools:** Git, Jira, VS Code (2 published extensions), Cursor, Claude Code, Gemini CLI, Codex
+* **AI-Driven Development:** Cursor, Claude Code, Gemini CLI, OpenAI Codex — routinely used for agentic coding, code review, and feature scaffolding
 
 ## ADDITIONAL ACHIEVEMENTS
 
