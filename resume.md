@@ -9,9 +9,10 @@ fontsize: 10pt
 
 # Brendan Manseung Choi
 
-**AI Engineer | Full-Stack Developer**
+**AI Engineer | Backend Developer**
+AI/full-stack engineer who takes products from architecture to production. Currently building and deploying a clinical AI system used by real patients.
 
-Auckland, New Zealand | <brendanchoi0626@gmail.com> | +64 22 036 8384
+Auckland, New Zealand | [brendanchoi0626@gmail.com](mailto:brendanchoi0626@gmail.com) | +64 22 036 8384
 LinkedIn: linkedin.com/in/manseung-choi-0447b4223 | GitHub: github.com/mcho868 | Portfolio: manseungchoi.com
 
 ## EDUCATION
@@ -19,55 +20,50 @@ LinkedIn: linkedin.com/in/manseung-choi-0447b4223 | GitHub: github.com/mcho868 |
 **Bachelor of Science (Honours, First Class Honours) in Computer Science**
 University of Auckland | Feb 2022 - Dec 2025 | GPA: 8 / 9
 
-* University of Auckland Postgraduate Honours / PGDip Scholar
+- University of Auckland Postgraduate Honours / PGDip Scholar
 
 ## PROFESSIONAL EXPERIENCE
 
-**Founding Engineer & CTO (Hands-On)** | AIvolve (AI Automation start-up) | Dec 2025 - Present
-
-* Designed and implemented an AI voice agent for inbound calls, lead qualification, and automated job booking using LLM-based intent parsing and calendar APIs
-* Built end-to-end call handling workflows (speech -> intent -> scheduling -> CRM sync) to reduce missed bookings, currently onboarding clients with growing uptake
-* Deployed a production-ready beta and supported pilot users across construction and home services
-
 **Founding Engineer & CTO (Hands-On)** | Align Health Tech (Healthtech start-up) | Oct 2025 - Present
 
-* Designed and implemented AI-driven clinical workflow automation for GP clinics, integrating with existing Practice Management Systems
-* Built automated patient summarisation and referral generation pipelines to reduce clinician administrative workload
-* Secured NZD $15K Velocity Challenge funding and supported early pilot deployments
-* **Ongoing pilot at an Urgent Care Clinic** — live deployment with real clinical users
+- Designed and implemented AI-driven clinical workflow automation for urgent care clinics, building automated patient summarisation and referral generation pipelines to reduce clinician administrative workload
+- Built the product as a Next.js / TypeScript application on Azure platforms, gaining production experience across full-stack delivery, cloud deployment, and clinical systems integration
+- Secured NZD $15K Velocity Challenge funding and supported early pilot deployments
+- Achieved an average patient satisfaction score of 8/10 across 120 pilot patients at a live Urgent Care Clinic deployment
+- **Ongoing pilot at an Urgent Care Clinic** — live deployment with real clinical users
 
 **Research Assistant (AI-Based Web Development)** | University of Auckland | Dec 2024 - 2025
 
-* Built an AI-powered course assistant using GPT-based NLP, TTS voice synthesis, and an avatar-based React frontend
-* Designed conversational interfaces to replace static course information pages
-* Awarded 2nd Place, COMPSCI 399 Capstone Competition (2024)
+- Built an AI-powered course assistant using GPT-based NLP, TTS voice synthesis, and an avatar-based React frontend
+- Designed conversational interfaces to replace static course information pages
+- Awarded 2nd Place, COMPSCI 399 Capstone Competition (2024)
 
 ## SELECTED PROJECTS
+
+**AIvolve - AI Voice Agent for Job Booking** | Founding Engineer & CTO | Dec 2025 - Present
+
+- Built an end-to-end AI voice agent for inbound calls, lead qualification, and automated job booking — VAPI and Twilio for call agents, n8n for workflow automation, GoHighLevel for CRM/scheduling sync, and Stripe for subscriptions
+- Sold a live subscription to a real user, with uptake still growing
 
 **Plain Rights - Legal Document Simplification**
 *(1st Place out of 12 teams, University of Auckland Legal Tech Hackathon - Student Competition)*
 
-* Built a RAG pipeline translating complex legal contracts into verified plain-English summaries
+- Built a RAG pipeline translating complex legal contracts into verified plain-English summaries
 
 **Honours Dissertation - On-Device Medical Triage with Compact LLMs**
 
-* Achieved **70.4% triage accuracy** with **2.4s end-to-end latency** on retail consumer device using an on-device RAG system
-* Built with quantized SmolLM2 (135M-360M) and LoRA fine-tuning on 13,825 synthetic triage cases
-
-**Pomocoin - Gamified Productivity App (iOS Beta)**
-
-* Built a React Native productivity app with offline support, subscriptions, and reward-based gamification
+- Achieved **70.4% triage accuracy** with **2.4s end-to-end latency** on retail consumer device using an on-device RAG system
+- Built with quantized SmolLM2 (135M-360M) and LoRA fine-tuning on 13,825 synthetic triage cases
 
 ## TECHNICAL SKILLS
 
-* **Coding language:** Python, TypeScript, JavaScript, SQL, Java, C#
-* **AI / ML:** RAG, LoRA fine-tuning, quantization (4-bit / 8-bit), LLM APIs (OpenAI, Gemini), local inference (Ollama)
-* **Web / Mobile:** React, React Native, Next.js, Django, Flask, Express.js, Tailwind CSS
-* **Databases:** Firebase, MySQL, SQLite
-* **Cloud / Infra:** AWS
-* **Tools:** Git, Jira, VS Code (2 published extensions), Cursor, Claude Code, Gemini CLI, Codex
-* **AI-Driven Development:** Cursor, Claude Code, Gemini CLI, OpenAI Codex — routinely used for agentic coding, code review, and feature scaffolding
+- **Coding language:** Python, TypeScript
+- **AI / ML:** Experiences in building LLM enabled applications with and without langchain/langgraph, Fine tuning and integrating RAG. 
+- **Dev: ** Typescript - Next.js/Vite, Python-  Fast API/Flask/Django
+- **Databases:** PostgreSQL on Supabase, MySQL, SQLite
+- **Cloud / Infra:** AWS, Azure
+- **Tools:** Git, n8n, Cursor, Claude Code, Gemini CLI, OpenAI Codex — routinely used for agentic coding, code review, and feature scaffolding
 
 ## ADDITIONAL ACHIEVEMENTS
 
-* Published 2 VS Code extensions (LOCAI, File Star) to the Marketplace
+- Published 2 VS Code extensions (LOCAI, File Star) to the Marketplace
