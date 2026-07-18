@@ -6,32 +6,23 @@ export default function About() {
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
           <p style={{ fontSize: "1.125rem", marginBottom: "1.5rem" }}>
             I&apos;m a Computer Science graduate from the University of Auckland with
-            First Class Honours (GPA 8.063/9), specializing in Machine Learning, AI,
-            and large-scale software development. My journey in tech has been driven
-            by a genuine passion for creating innovative solutions using cutting-edge
-            technologies.
+            First Class Honours (GPA 8/9), specializing in AI
+            and software development. My journey in tech has been driven
+            by a genuine passion for creating innovative solutions using the latest tools and technologies.
           </p>
           <p style={{ fontSize: "1.125rem", marginBottom: "1.5rem" }}>
-            Currently, I serve as Founding Engineer &amp; CTO for two startups—{" "}
+            I currently serve as Founding Engineer &amp; CTO at{" "}
             <a
               href="https://alignhealthtech.com"
               target="_blank"
               rel="noreferrer"
               style={{ color: "var(--primary-color)", textDecoration: "none" }}
-            >
-              alignhealthtech.com
-            </a>{" "}
-            and{" "}
-            <a
-              href="https://aivolve.co.nz"
-              target="_blank"
-              rel="noreferrer"
-              style={{ color: "var(--primary-color)", textDecoration: "none" }}
-            >
-              aivolve.co.nz
+            > 
+              Align Health Tech
             </a>
-            —where I take AI-powered products from architecture to production,
-            including a clinical AI system used by real patients.
+            , where I take AI-powered products from architecture to
+            production—including a clinical AI system now live with real
+            patients at an Urgent Care Clinic.
           </p>
           <p style={{ fontSize: "1.125rem", marginBottom: "1.5rem" }}>
             Beyond coding, I&apos;m also a certified personal trainer (NASM), electric
