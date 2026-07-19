@@ -44,7 +44,7 @@ const TECH_ITEMS: TimelineItem[] = [
         alignhealthtech.com
       </a>
     ),
-    date: "October 2025 - Present",
+    date: "October 2025 - July 2026",
     description: (
       <>
         Designed and implemented AI-driven clinical workflow automation for urgent care

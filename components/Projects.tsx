@@ -35,7 +35,8 @@ const FOLDERS: Folder[] = [
           </>
         ),
         badges: ["Healthcare AI", "Next.js", "TypeScript", "Azure", "CTO", "Live Pilot"],
-        links: [{ label: "Visit Site →", href: "https://alignhealthtech.com" }],
+        links: [{ label: "The business closed; website currently unavailable →", href: "https://alignhealthtech.com"}],
+
       },
       {
         title: "AIvolve - AI Voice Agent for Job Booking",
