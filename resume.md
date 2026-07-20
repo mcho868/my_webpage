@@ -24,7 +24,7 @@ University of Auckland | Feb 2022 - Dec 2025 | GPA: 8 / 9
 
 ## PROFESSIONAL EXPERIENCE
 
-**Founding Engineer & CTO (Hands-On)** | Align Health Tech (Healthtech start-up) | Oct 2025 - Jul 2026
+**Founding Engineer & CTO** | Align Health Tech (Healthtech start-up) | Oct 2025 - Jul 2026
 
 - Designed and implemented AI-driven clinical workflow automation for urgent care clinics, building automated patient summarisation and referral generation pipelines to reduce clinician administrative workload
 - Built the product as a Next.js / TypeScript application on Azure platforms, gaining production experience across full-stack delivery, cloud deployment, and clinical systems integration
@@ -32,7 +32,7 @@ University of Auckland | Feb 2022 - Dec 2025 | GPA: 8 / 9
 - Achieved an average patient satisfaction score of 8/10 across 120 pilot patients at a live Urgent Care Clinic deployment
 - **Ongoing pilot at an Urgent Care Clinic** — live deployment with real clinical users
 
-**Research Assistant (AI-Based Web Development)** | University of Auckland | Dec 2024 - 2025
+**Research Assistant** | University of Auckland | Dec 2024 - 2025
 
 - Built an AI-powered course assistant using GPT-based NLP, TTS voice synthesis, and an avatar-based React frontend
 - Designed conversational interfaces to replace static course information pages
