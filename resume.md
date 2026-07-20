@@ -10,7 +10,7 @@ fontsize: 10pt
 # Brendan Manseung Choi
 
 **AI Engineer | Backend Developer**
-AI/full-stack engineer who takes products from architecture to production. Currently building and deploying a clinical AI system used by real patients.
+AI/full-stack engineer who takes products from architecture to production.
 
 Auckland, New Zealand | [brendanchoi0626@gmail.com](mailto:brendanchoi0626@gmail.com) | +64 22 036 8384
 LinkedIn: linkedin.com/in/manseung-choi-0447b4223 | GitHub: github.com/mcho868 | Portfolio: manseungchoi.com
@@ -40,7 +40,7 @@ University of Auckland | Feb 2022 - Dec 2025 | GPA: 8 / 9
 
 ## SELECTED PROJECTS
 
-**AIvolve - AI Voice Agent for Job Booking** | Founding Engineer & CTO | Dec 2025 - Present
+**AIvolve - AI Voice Agent for Job Booking** | Dec 2025 - Present
 
 - Built an end-to-end AI voice agent for inbound calls, lead qualification, and automated job booking — VAPI and Twilio for call agents, n8n for workflow automation, GoHighLevel for CRM/scheduling sync, and Stripe for subscriptions
 - Sold a live subscription to a real user, with uptake still growing
