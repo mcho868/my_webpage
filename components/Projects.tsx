@@ -35,7 +35,10 @@ const FOLDERS: Folder[] = [
           </>
         ),
         badges: ["Healthcare AI", "Next.js", "TypeScript", "Azure", "CTO", "Live Pilot"],
-        links: [{ label: "The business closed; website currently unavailable →", href: "https://alignhealthtech.com"}],
+        links: [
+          { label: "View Demo →", href: "https://demo.alignhealthtech.com" },
+          { label: "View GitHub →", href: "https://github.com/Align-Health-Tech/Align-Main" },
+        ],
 
       },
       {

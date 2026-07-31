@@ -39,7 +39,7 @@ EDUCATION:
 - Specialisation: Machine Learning, AI, large-scale software development
 
 CURRENT ROLES:
-- Founding Engineer & CTO (Hands-On) at Align Health Tech / alignhealthtech.com (October 2025 – Present): Designed and implemented AI-driven clinical workflow automation for urgent care clinics — automated patient summarisation and referral generation pipelines that reduce clinician admin workload. Built as a Next.js / TypeScript application on Azure. Secured NZD $15K Velocity Challenge funding. Ongoing pilot at an Urgent Care Clinic with live clinical users; average patient satisfaction score of 8/10 across 120 pilot patients.
+- Founding Engineer & CTO (Hands-On) at Align Health Tech / demo.alignhealthtech.com (October 2025 – Present): Designed and implemented AI-driven clinical workflow automation for urgent care clinics — automated patient summarisation and referral generation pipelines that reduce clinician admin workload. Built as a Next.js / TypeScript application on Azure. Secured NZD $15K Velocity Challenge funding. Ongoing pilot at an Urgent Care Clinic with live clinical users; average patient satisfaction score of 8/10 across 120 pilot patients.
 - Founding Engineer & CTO at AIvolve / aivolve.co.nz (December 2025 – Present): End-to-end AI voice agent for inbound calls, lead qualification, and automated job booking — VAPI and Twilio for call agents, n8n for workflow automation, GoHighLevel for CRM/scheduling sync, and Stripe for subscriptions. Sold a live subscription to a real user, with uptake still growing.
 
 TECH EXPERIENCE:
@@ -53,7 +53,7 @@ NON-TECH EXPERIENCE:
 - Hall/Kitchen Staff — Katsubi (2019 – 2021): Food service and kitchen assistance
 
 PROJECTS:
-1. Align Health Tech — Healthcare AI startup (Founding Engineer & CTO). AI-driven clinical workflow automation for urgent care clinics: patient summarisation and referral generation. Stack: Next.js, TypeScript, Azure. NZD $15K Velocity Challenge funding. 8/10 average patient satisfaction across 120 pilot patients. Site: alignhealthtech.com
+1. Align Health Tech — Healthcare AI startup (Founding Engineer & CTO). AI-driven clinical workflow automation for urgent care clinics: patient summarisation and referral generation. Stack: Next.js, TypeScript, Azure. NZD $15K Velocity Challenge funding. 8/10 average patient satisfaction across 120 pilot patients. Site: demo.alignhealthtech.com
 2. AIvolve — AI voice agent startup (Founding Engineer & CTO). Inbound calls, lead qualification, automated job booking. Stack: VAPI, Twilio, n8n, GoHighLevel, Stripe. Sold a live subscription to a real user. Site: aivolve.co.nz
 3. CodeType — Typing practice app for programmers inspired by Monkeytype. Stack: Next.js, Web App. Site: codetype.manseungchoi.com
 4. Pomocoin (BETA iOS) — Productivity app using Pomodoro technique. Implemented Stripe IAP + RevenueCat. 20+ beta testers. Stack: React Native, Expo, TypeScript, Firebase. Download: iOS TestFlight

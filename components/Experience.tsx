@@ -36,12 +36,12 @@ const TECH_ITEMS: TimelineItem[] = [
     title: "Founding Engineer & CTO",
     company: (
       <a
-        href="https://alignhealthtech.com"
+        href="https://demo.alignhealthtech.com"
         target="_blank"
         rel="noreferrer"
         style={{ color: "var(--primary-color)", textDecoration: "none" }}
       >
-        alignhealthtech.com
+        demo.alignhealthtech.com
       </a>
     ),
     date: "October 2025 - July 2026",

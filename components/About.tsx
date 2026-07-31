@@ -13,7 +13,7 @@ export default function About() {
           <p style={{ fontSize: "1.125rem", marginBottom: "1.5rem" }}>
             I currently serve as Founding Engineer &amp; CTO at{" "}
             <a
-              href="https://alignhealthtech.com"
+              href="https://demo.alignhealthtech.com"
               target="_blank"
               rel="noreferrer"
               style={{ color: "var(--primary-color)", textDecoration: "none" }}
